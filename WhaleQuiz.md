@@ -2,7 +2,6 @@
 name: WhaleQuiz
 description: Este projeto tem como objetivo insentivar o conehcimento atravez da criação e resolução de quizzes.
 addresses:
-  preview: https://raw.githubusercontent.com/ifpb/ifpb.github.io/main/preview.png
   homepage: https://pauloant.github.io/ls-projeto-whalequiz/
   repository: https://github.com/PauloAnt/ls-projeto-whalequiz
 category:
