@@ -1,0 +1,11 @@
+:root{
+    --branco: #f7f6f7;
+    --azul-claro: #b0e4f4;
+    --laranja: #f4b946;
+    --verde: #14ba85;
+
+    --preto: rgb(39, 37, 37);
+
+    --font: "Roboto", serif;
+    --font-titulo: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
