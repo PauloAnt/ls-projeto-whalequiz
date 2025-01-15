@@ -1,0 +1,118 @@
+body {
+    background-color: var(--branco);
+    font-family: var(--font);
+    color: var(--preto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--branco);
+    border: 2px solid var(--verde);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+form h1 {
+    font-family: var(--font-titulo);
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--preto);
+}
+
+form input {
+    margin: 10px 0;
+    border: 1px solid var(--verde);
+    background-color: var(--branco);
+    color: var(--preto);
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+form input:focus {
+    outline: none;
+    border-color: var(--azul-claro);
+    box-shadow: 0 0 8px var(--azul-claro);
+}
+
+form button {
+    border: none;
+    border-radius: 5px;
+    background-color: var(--verde);
+    color: var(--branco);
+    width: 100%;
+    max-width: 200px;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--laranja);
+    transform: scale(1.05);
+}
+
+.perfil-historico{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    background-color: var(--branco);
+    border: 2px solid var(--verde);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    padding: 20px;
+    height: auto;
+}
+
+.perfil-historico-text h2{
+    font-family: var(--font-titulo);
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--preto);
+}
+
+.perfil-historico-box{
+    display: flex;
+}
+
+.box-quiz{
+    margin: 20px 40px;
+    background-color: var(--laranja);
+    padding: 20px;
+    border-radius: 5px;
+}

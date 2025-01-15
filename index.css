@@ -9,3 +9,12 @@
     --font: "Roboto", serif;
     --font-titulo: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+input{
+    outline: none;
+}
