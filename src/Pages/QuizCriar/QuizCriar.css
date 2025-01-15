@@ -36,8 +36,6 @@ main h1{
 }
 
 .criar-quiz-text input{
-    box-shadow: var(--box-shadow);
-    border: 1px solid var(--verde);
     width: 40%;
     padding: 20px;
     font-size: 18px;
@@ -46,7 +44,7 @@ main h1{
     transition: all 0.3s ease;
 }
 
-.criar-quiz-text input:focus {
+.criar-quiz-text input:focus, .border-cinza:focus{
     outline: none;
     border-color: var(--azul-claro);
     box-shadow: 0 0 8px var(--azul-claro);
@@ -57,8 +55,7 @@ main h1{
     border-radius: 5px;
     background-color: var(--verde);
     color: var(--branco);
-    width: 100%;
-    max-width: 200px;
+    width: 30%;
     height: 40px;
     font-size: 16px;
     margin: 20px 0;
@@ -100,11 +97,13 @@ main h1{
     margin: 10px 0;
 }
 
-.border-laranja{
-    border: 2px solid var(--laranja);
+.border-cinza{
+    border: 1px solid var(--cinza);
+    box-shadow: var(--box-shadow);
     font-weight: bold;
     font-size: 18px !important;
 }
+
 .border-verde{
     border: 1px solid var(--verde);
 }
