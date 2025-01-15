@@ -3,16 +3,21 @@
     --azul-claro: #b0e4f4;
     --laranja: #f4b946;
     --verde: #14ba85;
+    --vermelho: rgb(218, 18, 18);
 
     --preto: rgb(39, 37, 37);
 
     --font: "Roboto", serif;
-    --font-titulo: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    --font-titulo: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    --tam-font-titulo: 40px;
+
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 *{
     padding: 0;
     margin: 0;
+    font-family: var(--font);
 }
 
 input{

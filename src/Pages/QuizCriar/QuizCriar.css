@@ -1,0 +1,113 @@
+body {
+    background-color: var(--branco);
+    font-family: var(--font);
+    color: var(--preto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: auto;
+    padding: 20px
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+}
+
+main h1{
+    margin: 20px 0;
+    font-family: var(--font-titulo);
+    font-weight: 500;
+    font-size: var(--tam-font-titulo);
+}
+
+.criar-quiz-text{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.criar-quiz-text input{
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--verde);
+    width: 40%;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.criar-quiz-text input:focus {
+    outline: none;
+    border-color: var(--azul-claro);
+    box-shadow: 0 0 8px var(--azul-claro);
+}
+
+.criar-quiz-form form button {
+    border: none;
+    border-radius: 5px;
+    background-color: var(--verde);
+    color: var(--branco);
+    width: 100%;
+    max-width: 200px;
+    height: 40px;
+    font-size: 16px;
+    margin: 20px 0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.criar-quiz-form form button:hover {
+    background-color: var(--laranja);
+    transform: scale(1.05);
+}
+
+
+.criar-quiz-form{
+    margin: auto 0;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.criar-quiz-form form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.criar-quiz-form form input{
+    box-shadow: var(--box-shadow);
+    width: 40%;
+    padding: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.border-laranja{
+    border: 2px solid var(--laranja);
+    font-weight: bold;
+    font-size: 18px !important;
+}
+.border-verde{
+    border: 1px solid var(--verde);
+}
+.border-vermelho{
+    border: 1px solid var(--vermelho);
+}
