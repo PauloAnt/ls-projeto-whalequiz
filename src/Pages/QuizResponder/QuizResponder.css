@@ -3,11 +3,9 @@ body {
     font-family: var(--font);
     color: var(--preto);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     min-height: 100vh;
-    height: auto;
-    padding: 20px
+    margin: 0;
 }
 
 main{
@@ -88,4 +86,116 @@ main{
 .submit-button:hover {
     background-color: var(--laranja);
     transform: scale(1.03);
+}
+
+ul.conteiner1 {
+    margin: 0;
+    list-style-type: none;
+    background-color: var(--azul-claro);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.37);
+}
+
+img.whale-logo {
+    border-radius: 50%;
+}
+
+li.criar {
+    width: 80px;
+    text-align: center;
+    background-color: var(--laranja);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+li.criar i {
+    margin-right: 5px;
+}
+
+li.criar:hover {
+    color: white;
+}
+
+li.entrar {
+    width: 80px;
+    text-align: center;
+    background-color: var(--laranja);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+li.entrar:hover {
+    color: white;
+}
+
+li.registrar{
+    width: 80px;
+    text-align: center;
+    background-color: var(--laranja);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+li.registrar:hover {
+    color: white;
+}
+
+input#pesquisar-quiz {
+    font-size: 16px;
+    width: 300px;
+    padding: 10px;
+    margin: 5px 5px;
+    border-radius: 10px;
+    background-color: var(--branco);
+    border: 2px solid var(--branco);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Css do footer */
+footer {
+    background-color: var(--azul-claro);
+    margin-top: auto;
+    width: 100%;
+}
+
+p.margem {
+    margin: 8px 8px;
+    text-align: center;
+}
+
+article.conteiner2 {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
+}
+
+.conteiner2 i {
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.conteiner2 i:hover {
+    scale: 110%;
+    transition: 0.5s;
 }
