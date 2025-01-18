@@ -1,0 +1,184 @@
+/* Css do Header */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--font);
+    background-color: var(--branco);
+}
+
+ul.conteiner1 {
+    margin: 0;
+    list-style-type: none;
+    background-color: var(--azul-claro);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: var(--branco);
+}
+
+img.whale-logo {
+    border-radius: 50%;
+}
+
+li.criar {
+    width: 80px;
+    text-align: center;
+    background-color: var(--laranja);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+li.entrar {
+    width: 80px;
+    text-align: center;
+    background-color: var(--laranja);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+li.registrar{
+    width: 80px;
+    text-align: center;
+    background-color: var(--laranja);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+
+input#pesquisar-quiz {
+    font-size: 16px;
+    width: 300px;
+    padding: 10px;
+    margin: 5px 5px;
+    border-radius: 10px;
+    background-color: var(--branco);
+    border: 2px solid var(--branco);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+/* Css do Main */
+main {
+    margin: auto;
+    display: flex;
+    width: 600px;
+    height: 550px;
+    justify-content: center;
+    background-color: var(--cinza);
+    border-radius: 10px;
+    border: 3px solid var(--verde);
+}
+
+h1#registrar-nome-quiz {
+    margin: 10px 10px;
+    font-family: var(--font-titulo);
+    font-size: var(--tam-font-titulo);
+}
+
+article.article  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+form.form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    width: 500px;
+    padding: 12px;
+    margin: 10px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--verde);
+}
+
+button#registrar {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--verde);
+    cursor: pointer;
+    margin: 10px 10px;
+    border: 2px solid var(--verde);
+    color: var(--branco);
+    transition: 0.5s;
+    font-size: 18px;
+}
+
+button#registrar:hover {
+    background-color: var(--laranja);
+    border: 2px solid var(--laranja);
+    transform: scale(1.03);
+    transition: 0.5s;
+}
+
+p#pergunta {
+    color: var(--verde);
+}
+
+.input {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--preto);
+}
+
+/* Css do footer */
+footer {
+    background-color: var(--azul-claro);
+    margin-top: auto;
+    width: 100%;
+}
+
+p.margem {
+    margin: 8px 8px;
+    text-align: center;
+}
+
+article.conteiner2 {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
+}
+
+.conteiner2 i {
+    background-color: var(--branco);
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.conteiner2 i:hover {
+    scale: 110%;
+    transition: 0.5s;
+}
+
