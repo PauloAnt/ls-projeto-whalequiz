@@ -124,6 +124,7 @@ img.whale-logo {
 }
 
 li.criar {
+    color: var(--branco);
     width: 80px;
     text-align: center;
     background-color: var(--laranja);
@@ -132,17 +133,10 @@ li.criar {
     margin: 5px 5px;
     transition: 0.5s;
     cursor: pointer;
-}
-
-li.criar i {
-    margin-right: 5px;
-}
-
-li.criar:hover {
-    color: white;
 }
 
 li.entrar {
+    color: var(--branco);
     width: 80px;
     text-align: center;
     background-color: var(--laranja);
@@ -151,13 +145,10 @@ li.entrar {
     margin: 5px 5px;
     transition: 0.5s;
     cursor: pointer;
-}
-
-li.entrar:hover {
-    color: white;
 }
 
 li.registrar{
+    color: var(--branco);
     width: 80px;
     text-align: center;
     background-color: var(--laranja);
@@ -168,12 +159,7 @@ li.registrar{
     cursor: pointer;
 }
 
-li.registrar:hover {
-    color: white;
-}
-
 input#pesquisar-quiz {
-    font-size: 16px;
     width: 300px;
     padding: 10px;
     margin: 5px 5px;
@@ -189,9 +175,16 @@ a {
 
 /* Css do footer */
 footer {
+    font-size: 18px;
     background-color: var(--azul-claro);
     margin-top: auto;
     width: 100%;
+}
+
+p.margem {
+    font-weight: bold;
+    margin: 8px 8px;
+    text-align: center;
 }
 
 p {
