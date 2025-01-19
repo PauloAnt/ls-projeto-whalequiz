@@ -215,7 +215,7 @@ a{
 
 
 #all-quizzes{
-    width: 100%;
+    width: 98vw;
     display: grid;
     background-color: var(--cinza);
     padding: 10px;
@@ -254,4 +254,48 @@ a{
 #ver-mais .botao:active {
     transform: scale(1); 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+@media (max-width:350px){
+    h1{
+        font-size: 2rem;
+    }
+    #all-quizzes{
+        width: 90vw;
+    }
+
+}
+
+@media (max-width:600px){
+    .pop-cards{
+        width: 80vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #box-temas{
+        margin-top: 50px;
+        grid-template-columns: 1fr;
+
+    }
+    .esconder{
+        opacity: 100;
+    }
+    .visible{
+        display: none;
+    }
+    #all-quizzes{
+        width: 95vw;
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (min-width:601px) AND (max-width:800px){
+    .pop-cards{
+        width: 95vw;
+    }
+    #all-quizzes{
+        width: 95vw;
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

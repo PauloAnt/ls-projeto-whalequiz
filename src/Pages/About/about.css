@@ -1,0 +1,16 @@
+article{
+    margin-top: 50px;
+    padding: 50px;
+    background-color: var(--cinza);
+    
+}
+
+span{
+    color: var(--laranja)
+}
+
+@media (max-width:400px){
+    h1{
+        font-size: 2rem;
+    }
+}
