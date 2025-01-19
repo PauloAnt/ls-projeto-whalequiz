@@ -25,6 +25,7 @@ main {
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
+    padding: 50px 0;
 }
 
 form {
@@ -33,9 +34,9 @@ form {
     justify-content: center;
     align-items: center;
     background-color: var(--branco);
-    border: 2px solid var(--verde);
+    border: 2px solid var(--azul-claro);
     box-shadow: var(--box-shadow);
-    border-radius: 10px;
+    border-radius: 5px;
     width: 90%;
     max-width: 400px;
     padding: 20px;
@@ -51,7 +52,7 @@ form h1 {
 
 form input {
     margin: 10px 0;
-    border: 1px solid var(--verde);
+    border: 1px solid var(--azul-claro);
     background-color: var(--branco);
     color: var(--preto);
     width: 100%;
