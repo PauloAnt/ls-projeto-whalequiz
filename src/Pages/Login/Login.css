@@ -1,0 +1,172 @@
+main {
+    margin: auto;
+}
+
+article h1 {
+    margin: 10px 10px;
+    font-family: var(--font-titulo);
+    font-size: var(--tam-font-titulo);
+}
+
+article.a1  {
+    width: 500px;
+    height: 430px;
+    background-color: var(--cinza);
+    border: 3px solid var(--verde);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+}
+
+article.a2 {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--cinza);
+    border: 3px solid var(--verde);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+form.form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    width: 400px;
+    padding: 12px;
+    margin: 10px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--verde);
+}
+
+button#entrar {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--verde);
+    cursor: pointer;
+    margin: 10px 10px;
+    border: 2px solid var(--verde);
+    color: var(--branco);
+    transition: 0.5s;
+    font-size: 18px;
+}
+
+button#registrar:hover {
+    background-color: var(--laranja);
+    border: 2px solid var(--laranja);
+    transform: scale(1.03);
+    transition: 0.5s;
+}
+
+p#pergunta {
+    margin-top: 15px;
+    color: var(--verde);
+    cursor: pointer;
+}
+
+p a {
+    color: var(--verde);
+}
+
+.input {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--preto);
+}
+
+@media (max-width: 1024px) {
+    ul.conteiner1 {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    input#pesquisar-quiz {
+        width: 80%;
+    }
+
+}
+
+@media (max-width: 762px) {
+    li.img {
+        order: 1;
+    }
+
+    li.criar {
+        order: 2;
+    }
+
+    li.pesquisar {
+        order: 5;
+        width: 50%;
+        text-align: center;
+    }
+
+    li.entrar {
+        order: 3;
+    }
+    
+    li.registrar{
+        order: 4;
+    }
+
+    main {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    article.a1 {
+        width: 350px;
+    }
+
+    form input {
+        width: 250px;
+    }
+
+    button#entrar {
+        width: 200px;
+    }
+
+}
+
+@media (max-width: 430px) {
+    ul.conteiner1 {
+        flex-direction: column;
+    }
+
+
+    li.criar, li.entrar, li.registrar {
+        width: 60%;
+    }
+
+    li.pesquisar {
+        width: 90%;
+        text-align: center;
+    }
+
+    article.a1 {
+        width: 300px;
+    }
+
+    form input {
+        width: 220px;
+    }
+
+    button#entrar {
+        width: 200px;
+    }
+}
