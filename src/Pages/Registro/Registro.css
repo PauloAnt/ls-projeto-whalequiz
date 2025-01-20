@@ -5,12 +5,13 @@ main {
     width: 600px;
     height: 500px;
     justify-content: center;
-    background-color: var(--cinza);
+    align-items: center;
+    background-color: var(--azul-claro);
     border-radius: 10px;
-    border: 3px solid var(--verde);
+    box-shadow: var(--box-shadow);
 }
 
-h1#registrar-nome-quiz {
+#registrar-nome-quiz {
     margin: 10px 10px;
     font-family: var(--font-titulo);
     font-size: var(--tam-font-titulo);
@@ -32,9 +33,10 @@ form.form {
 form input {
     width: 500px;
     padding: 12px;
+    font-size: 16px;
     margin: 10px 10px;
     border-radius: 5px;
-    border: 1px solid var(--verde);
+    border: none;
 }
 
 button#registrar {
@@ -44,18 +46,17 @@ button#registrar {
     width: 300px;
     padding: 10px;
     border-radius: 5px;
-    background-color: var(--verde);
+    background-color: var(--laranja);
     cursor: pointer;
     margin: 10px 10px;
-    border: 2px solid var(--verde);
+    border: none;
     color: var(--branco);
     transition: 0.5s;
     font-size: 18px;
 }
 
 button#registrar:hover {
-    background-color: var(--laranja);
-    border: 2px solid var(--laranja);
+    background-color: var(--verde);
     transform: scale(1.03);
     transition: 0.5s;
 }

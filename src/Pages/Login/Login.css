@@ -1,4 +1,5 @@
 main {
+    padding: 40px 0;
     margin: auto;
 }
 
@@ -11,12 +12,13 @@ article h1 {
 article.a1  {
     width: 500px;
     height: 430px;
-    background-color: var(--cinza);
-    border: 3px solid var(--verde);
+    background-color: var(--azul-claro);    
+    box-shadow: var(--box-shadow);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    border-radius: 25px;
+    border-radius: 10px;
 }
 
 article.a2 {
@@ -24,8 +26,7 @@ article.a2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--cinza);
-    border: 3px solid var(--verde);
+    background-color: var(--azul-claro);
     padding: 20px;
     border-radius: 15px;
 }
@@ -41,7 +42,8 @@ form input {
     padding: 12px;
     margin: 10px 10px;
     border-radius: 5px;
-    border: 1px solid var(--verde);
+    font-size: 16px;
+    border: none;
 }
 
 button#entrar {
@@ -51,30 +53,29 @@ button#entrar {
     width: 300px;
     padding: 10px;
     border-radius: 5px;
-    background-color: var(--verde);
+    background-color: var(--laranja);
     cursor: pointer;
     margin: 10px 10px;
-    border: 2px solid var(--verde);
+    border: none;
     color: var(--branco);
     transition: 0.5s;
     font-size: 18px;
 }
 
-button#registrar:hover {
-    background-color: var(--laranja);
-    border: 2px solid var(--laranja);
+button#entrar:hover {
+    background-color: var(--verde);
     transform: scale(1.03);
     transition: 0.5s;
 }
 
 p#pergunta {
     margin-top: 15px;
-    color: var(--verde);
+    text-decoration: underline;
     cursor: pointer;
 }
 
 p a {
-    color: var(--verde);
+    text-decoration: underline;
 }
 
 .input {
