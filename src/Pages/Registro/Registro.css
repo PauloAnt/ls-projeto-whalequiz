@@ -1,80 +1,9 @@
-/* Css do Header */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    font-family: var(--font);
-    background-color: var(--branco);
-}
-
-ul.conteiner1 {
-    margin: 0;
-    list-style-type: none;
-    background-color: var(--azul-claro);
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    color: var(--branco);
-}
-
-img.whale-logo {
-    border-radius: 50%;
-}
-
-li.criar {
-    width: 80px;
-    text-align: center;
-    background-color: var(--laranja);
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px 5px;
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-li.entrar {
-    width: 80px;
-    text-align: center;
-    background-color: var(--laranja);
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px 5px;
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-li.registrar{
-    width: 80px;
-    text-align: center;
-    background-color: var(--laranja);
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px 5px;
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-
-input#pesquisar-quiz {
-    width: 300px;
-    padding: 10px;
-    margin: 5px 5px;
-    border-radius: 10px;
-    background-color: var(--branco);
-    border: 2px solid var(--branco);
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
 /* Css do Main */
 main {
     margin: auto;
     display: flex;
     width: 600px;
-    height: 550px;
+    height: 500px;
     justify-content: center;
     background-color: var(--cinza);
     border-radius: 10px;
@@ -147,39 +76,110 @@ p#pergunta {
     color: var(--preto);
 }
 
-/* Css do footer */
-footer {
-    background-color: var(--azul-claro);
-    margin-top: auto;
-    width: 100%;
+
+
+@media (max-width: 556px) {
+    ul.conteiner1 {
+        display: flex;
+        flex-direction: column; 
+        gap: 20px; 
+    }
+
+    li.logo {
+        order: 1; 
+    }
+
+    li.pesquisar {
+        order: 2;
+        text-align: center; 
+    }
+
+    li.criar {
+        order: 3;
+        width: 58%; 
+        padding: 10px;
+    }
+
+    li.entrar {
+        order: 4;
+        width: 58%; 
+        padding: 10px;
+    }
+
+    li.registrar {
+        width: 58%; 
+        padding: 10px;
+        order: 5;
+    }
+
+    main {
+        margin-top: 5%;
+        width: 350px;
+        height: auto; 
+        margin-bottom: 5%;
+    }
+
+    button#registrar {
+        width: 200px; 
+        margin-bottom: 10%;
+    }
+
+    form input {
+        width: 250px;
+        padding: 12px;
+        margin: 10px 10px;
+        border-radius: 5px;
+        border: 1px solid var(--verde);
+    }
 }
 
-p.margem {
-    font-weight: bold;
-    margin: 8px 8px;
-    text-align: center;
-    font-size: 18px;
-}
 
-article.conteiner2 {
+
+@media (min-width: 556px) AND (max-width: 662px) {
+    ul.conteiner1 {
     margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 10px;
-}
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 50px;
+    }
 
-.conteiner2 i {
-    background-color: var(--branco);
-    padding: 10px;
-    border-radius: 50%;
-    font-size: 30px;
-    cursor: pointer;
-    transition: 0.5s;
-}
+    main {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 350px;
+        height: 500px;
+    }
 
-.conteiner2 i:hover {
-    scale: 110%;
-    transition: 0.5s;
-}
+    form input {
+        width: 250px;
+        padding: 12px;
+        margin: 10px 10px;
+    }
 
+    button#registrar {
+        width: 200px;
+    }
+
+    li.img {
+        order: 1;
+    }
+
+    li.criar {
+        order: 2;
+    }
+
+    li.pesquisar {
+        order: 5;
+        width: 100%;
+        text-align: center;
+    }
+
+    li.entrar {
+        order: 3;
+    }
+    
+    li.registrar{
+        order: 4;
+    }
+
+}
