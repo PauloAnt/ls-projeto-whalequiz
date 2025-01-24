@@ -1,12 +1,17 @@
 main {
     padding: 40px 0;
+    height: 100vh;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 article h1 {
     margin: 10px 10px;
     font-family: var(--font-titulo);
     font-size: var(--tam-font-titulo);
+    font-weight: 500;
 }
 
 article.a1  {

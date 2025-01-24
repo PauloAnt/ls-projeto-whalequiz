@@ -33,13 +33,12 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--branco);
-    border: 2px solid var(--azul-claro);
+    background-color: var(--azul-claro);
     box-shadow: var(--box-shadow);
     border-radius: 5px;
     width: 90%;
     max-width: 400px;
-    padding: 20px;
+    padding: 50px 30px;
 }
 
 form h1 {
