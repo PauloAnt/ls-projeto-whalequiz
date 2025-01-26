@@ -14,20 +14,38 @@
         <div class="criar-quiz-text">
             <input type="text" placeholder="Nome do Quiz" class="border-cinza"/>
             <input type="text" placeholder="Coloque o tema do seu quiz aqui" class="border-cinza"/>
+            <textarea length="300" class="" placeholder="Coloque uma breve descrição aqui"></textarea>
         </div>
         <div class="criar-quiz-form">
-            <form>
-                <button>Adicionar pergunta</button>
-                <input type="text" placeholder="Digite sua pergunta" class="border-cinza"/>
+            <form class="form-pergunta">
+                <button type="button" id="add-question">Adicionar pergunta</button>
+                <div class="perguntas">
+                    <input type="text" placeholder="Digite sua pergunta" class="border-cinza"/>
                 
-                <input type="text" placeholder="Coloque a opção correta aqui" class="border-verde"/>
-                <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
-                <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
-                <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
+                    <input type="text" placeholder="Coloque a opção correta aqui" class="border-verde"/>
+                    <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
+                    <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
+                    <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
+                </div>
+                
 
                 <button type="submit">Criar</button>
             </form>
         </div>
     </main>
+    <script>
+        document.getElementById('add-question').addEventListener('click', function() {
+            
+            const novaPergunta = `
+                <input type="text" placeholder="Digite sua pergunta" class="border-cinza"/>
+                <input type="text" placeholder="Coloque a opção correta aqui" class="border-verde"/>
+                <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
+                <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
+                <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
+            `;
+
+            document.getElementById('perguntas').appendChild(novaPergunta);
+        });
+    </script>
 </body>
 </html>

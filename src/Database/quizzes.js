@@ -1,6 +1,7 @@
 export const quizzes = [
     {
         "id": 1,
+        "nome": "Quiz de Conhecimentos Gerais",
         "quiz": [
             {
                 "questoes": "Qual é o maior país em extensão territorial?",
@@ -29,10 +30,12 @@ export const quizzes = [
             }
         ],
         "create_at": "pauloant@example.com",
-        "tema": "conhecimentos_gerais"
+        "tema": "conhecimentos_gerais",
+        "descricao": "Teste seus conhecimentos gerais com perguntas sobre geografia, história, e fatos curiosos do mundo!"
     },
     {
         "id": 2,
+        "nome": "Quiz Educativo",
         "quiz": [
             {
                 "questoes": "Quem é o autor de “Dom Casmurro”?",
@@ -61,10 +64,12 @@ export const quizzes = [
             }
         ],
         "create_at": "pauloant@example.com",
-        "tema": "educativo"
+        "tema": "educativo",
+        "descricao": "Um quiz educativo para testar seus conhecimentos sobre literatura, ciências, matemática e mais!"
     },
     {
         "id": 3,
+        "nome": "Quiz Musical",
         "quiz": [
             {
                 "questoes": "Quem é conhecido como o 'Rei do Pop'?",
@@ -93,6 +98,7 @@ export const quizzes = [
             }
         ],
         "create_at": "victorbelfort@example.com",
-        "tema": "musica"
+        "tema": "musica",
+        "descricao": "Explore o universo musical com perguntas sobre artistas, álbuns icônicos e curiosidades!"
     }
 ];

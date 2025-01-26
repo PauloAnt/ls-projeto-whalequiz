@@ -34,7 +34,8 @@ main h1{
     width: 100%;
 }
 
-.criar-quiz-text input{
+.criar-quiz-text input, textarea{
+    resize: none;
     width: 40%;
     padding: 20px;
     font-size: 18px;
