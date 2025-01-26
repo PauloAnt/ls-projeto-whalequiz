@@ -2,11 +2,16 @@ import carregarPagina from "./Scripts/carregarPagina.js"
 import header from "./Components/header.js"
 import footer from "./Components/footer.js"
 
+import { quizzes } from "./Database/quizzes.js"
+import { users } from "./Database/users.js"
+
 document.getElementById("header").innerHTML = header()
 document.getElementById("footer").innerHTML = footer()
 
 carregarPagina("src/Pages/Home/home.html", "app");
 
+localStorage.setItem('users', JSON.stringify(users));
+localStorage.setItem('quizzes', JSON.stringify(quizzes));
 
 const rotas = (rota) => {
   if (rota == "registro"){
