@@ -100,5 +100,74 @@ export const quizzes = [
         "create_at": "victorbelfort@example.com",
         "tema": "musica",
         "descricao": "Explore o universo musical com perguntas sobre artistas, álbuns icônicos e curiosidades!"
+    },
+    {
+        "id": 4,
+        "nome": "Quiz de Tecnologia",
+        "quiz": [
+            {
+                "questoes": "Quem é considerado o pai da computação?",
+                "opcoes": ["Alan Turing", "Charles Babbage", "Steve Jobs", "Bill Gates"],
+                "correto": "Alan Turing"
+            },
+            {
+                "questoes": "Qual linguagem de programação é mais usada para desenvolvimento web?",
+                "opcoes": ["Python", "Java", "JavaScript", "C++"],
+                "correto": "JavaScript"
+            },
+            {
+                "questoes": "O que significa a sigla HTML?",
+                "opcoes": ["HyperText Markup Language", "HighText Machine Language", "Hyper Transfer Markup Language", "Home Tool Markup Language"],
+                "correto": "HyperText Markup Language"
+            },
+            {
+                "questoes": "Qual empresa desenvolveu o sistema operacional Android?",
+                "opcoes": ["Apple", "Microsoft", "Google", "Samsung"],
+                "correto": "Google"
+            },
+            {
+                "questoes": "O que significa a sigla CPU?",
+                "opcoes": ["Central Processing Unit", "Computer Personal Unit", "Central Personal Unit", "Computer Processing Unit"],
+                "correto": "Central Processing Unit"
+            }
+        ],
+        "create_at": "jonas@example.com",
+        "tema": "tecnologia",
+        "descricao": "Teste seus conhecimentos em tecnologia com perguntas sobre programação, hardware e software!"
+    },
+    {
+        "id": 5,
+        "nome": "Quiz de Cinema",
+        "quiz": [
+            {
+                "questoes": "Quem dirigiu o filme 'Titanic'?",
+                "opcoes": ["Steven Spielberg", "James Cameron", "Christopher Nolan", "Quentin Tarantino"],
+                "correto": "James Cameron"
+            },
+            {
+                "questoes": "Qual filme ganhou o Oscar de Melhor Filme em 2020?",
+                "opcoes": ["1917", "Coringa", "Parasita", "Era Uma Vez em... Hollywood"],
+                "correto": "Parasita"
+            },
+            {
+                "questoes": "Quem interpretou o personagem 'Homem de Ferro' nos filmes da Marvel?",
+                "opcoes": ["Chris Evans", "Chris Hemsworth", "Robert Downey Jr.", "Mark Ruffalo"],
+                "correto": "Robert Downey Jr."
+            },
+            {
+                "questoes": "Qual filme tem a famosa frase 'Que a Força esteja com você'?",
+                "opcoes": ["Star Trek", "O Senhor dos Anéis", "Harry Potter", "Star Wars"],
+                "correto": "Star Wars"
+            },
+            {
+                "questoes": "Qual é o nome do personagem principal em 'O Rei Leão'?",
+                "opcoes": ["Scar", "Mufasa", "Simba", "Timon"],
+                "correto": "Simba"
+            }
+        ],
+        "create_at": "jonas@example.com",
+        "tema": "cinema",
+        "descricao": "Teste seus conhecimentos sobre o mundo do cinema com perguntas sobre diretores, atores e filmes icônicos!"
     }
+    
 ];

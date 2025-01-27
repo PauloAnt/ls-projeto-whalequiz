@@ -26,6 +26,18 @@ carregarPagina("src/Pages/Home/home.html", "app").then(() => {
             console.error("Elemento 'all-quizzes' não encontrado.");
         }
     });
+
+    card_quiz.slice(0,4).forEach((q) => { 
+      let data = quizCard(q.nome, q.descricao, q.id);
+      const container = document.getElementById("quizzes-populares");
+      if (container){
+        container.insertAdjacentHTML("beforeend", data)
+      }
+      else {
+        console.error("Elemento 'all-quizzes' não encontrado.");
+      }
+    });
+
 });
 
 const rotas = (rota) => {
