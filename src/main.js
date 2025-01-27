@@ -64,7 +64,63 @@ const rotas = (rota) => {
     } else if (rota == "quizResponder") {
         carregarPagina("src/Pages/QuizResponder/QuizResponder.html", "app");
     } else if (rota == "quizCriar") {
-        carregarPagina("src/Pages/QuizCriar/QuizCriar.html", "app");
+        carregarPagina("src/Pages/QuizCriar/QuizCriar.html", "app").then(() => {
+            document.getElementById('add-question').addEventListener('click', () => {
+                const container = document.getElementById('perguntas');
+                const div = document.createElement('div');
+                div.classList.add('question-container');
+    
+                div.innerHTML = `
+                    <input type="text" placeholder="Digite sua pergunta" class="border-cinza questao"/>
+                    <input type="text" placeholder="Coloque a opção correta aqui" class="border-verde correto"/>
+                    <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho incorreto"/>
+                    <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho incorreto"/>
+                    <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho incorreto"/>
+                `;
+    
+                container.appendChild(div);
+            });
+    
+            document.querySelector('form').addEventListener('submit', (event) => {
+                event.preventDefault();
+    
+                const perguntas = [];
+                const nome = document.querySelector(".nome").value;
+                const tema = document.querySelector(".tema").value;
+                const descricao = document.querySelector(".descricao").value;
+    
+                document.querySelectorAll('.question-container').forEach((questionDiv) => {
+                    const questao = questionDiv.querySelector('.questao').value;
+                    const correto = questionDiv.querySelector('.correto').value;
+                    const incorretos = Array.from(
+                        questionDiv.querySelectorAll('.incorreto')
+                    ).map(input => input.value);
+    
+                    perguntas.push({
+                        pergunta: questao,
+                        opcoes: incorretos,
+                        correto: correto
+                        
+                    });
+                });
+    
+                const quizzes = JSON.parse(localStorage.getItem('quizzes') || '[]');
+                const data = {
+                    id: quizzes.length + 1,
+                    nome: nome,
+                    quiz: perguntas,
+                    criador: "teste",
+                    tema: tema,
+                    descricao: descricao
+                };
+    
+                quizzes.push(data);
+                localStorage.setItem('quizzes', JSON.stringify(quizzes));
+    
+                alert("Quiz criado com sucesso!");
+                carregarPagina("src/Pages/Home/home.html", "app");
+            });
+        });    
     } else if (rota == "quiz") {
         carregarPagina("src/Pages/Quiz/Quiz.html", "app");
     } else if (rota == "perfil") {
