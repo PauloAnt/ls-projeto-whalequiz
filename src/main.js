@@ -6,6 +6,7 @@ import { quizzes } from "./Database/quizzes.js";
 import { users } from "./Database/users.js";
 
 import quizCard from "./Components/quizCard.js";
+import quizzesCriados  from "./Components/quizzesCriados.js";
 
 document.getElementById("header").innerHTML = header();
 document.getElementById("footer").innerHTML = footer();
@@ -122,7 +123,20 @@ const rotas = (rota) => {
             });
         });    
     } else if (rota == "quiz") {
-        carregarPagina("src/Pages/Quiz/Quiz.html", "app");
+        carregarPagina("src/Pages/Quiz/Quiz.html", "app").then(() => {
+            const quizzesUsuarioAtual = [] 
+            quizzes.forEach((q) => {
+                if (q.criador === nome) quizzesUsuarioAtual.push(q);
+            }); // Pegar nome de quem está logado atualmente
+
+            quizzesUsuarioAtual.forEach((q) => {
+                document.querySelector(".quiz-exists").insertAdjacentHTML('beforeend', quizzesCriados(nome, ));
+            })
+            
+            document.querySelector(".deletar").addEventListener('click', () => {
+
+            })
+        });
     } else if (rota == "perfil") {
         carregarPagina("src/Pages/Perfil/Perfil.html", "app");
     } else if (rota == "about") {
