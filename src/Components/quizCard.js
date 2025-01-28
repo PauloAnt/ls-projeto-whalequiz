@@ -1,6 +1,6 @@
 export default function quizCard(nome, descricao, id){
     return `
-        <a href="#" class="link" data-rota="" data-id="${id}">
+        <a href="#" class="link data-id" data-rota="quizResponder" data-id="${id}">
                     
             <div class="card">
                 <img class="card-img" src="src/Images/CardImage.png" alt="imagem do card">
