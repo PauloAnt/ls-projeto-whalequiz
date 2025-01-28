@@ -162,15 +162,22 @@ const rotas = (rota) => {
             }); // Pegar nome de quem está logado atualmente
 
             quizzesUsuarioAtual.forEach((q) => {
-                document.querySelector(".quiz-exists").insertAdjacentHTML('beforeend', quizzesCriados(nome, ));
+                document.querySelector(".quiz-exists").insertAdjacentHTML('beforeend', quizzesCriados(q.nome, q.id));
             })
             
-            document.querySelector(".deletar").addEventListener('click', () => {
-
+            document.querySelectorAll(".deletar").addEventListener('click', (e) => {
+                const id = e.getAttribute("data-id");
+                quizzes.reduce((q) => q.id != id);
+                localStorage.setItem('quizzes', quizzes);
             })
+            alert("Quiz deletado com sucesso!");
+            carregarPagina("src/Pages/Quiz/Quiz.html", "app");
         });
     } else if (rota == "perfil") {
-        carregarPagina("src/Pages/Perfil/Perfil.html", "app");
+        carregarPagina("src/Pages/Perfil/Perfil.html", "app").then(() => {
+            document.querySelector(".usuario").value = "teste"
+            document.querySelector(".email").value = "email@email.com"
+        });
     } else if (rota == "about") {
         carregarPagina("src/Pages/About/About.html", "app");
     }
