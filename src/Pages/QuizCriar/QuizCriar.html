@@ -11,41 +11,24 @@
 <body>
     <main>
         <h1>Perguntas</h1>
-        <div class="criar-quiz-text">
-            <input type="text" placeholder="Nome do Quiz" class="border-cinza"/>
-            <input type="text" placeholder="Coloque o tema do seu quiz aqui" class="border-cinza"/>
-            <textarea length="300" class="" placeholder="Coloque uma breve descrição aqui"></textarea>
-        </div>
         <div class="criar-quiz-form">
             <form class="form-pergunta">
-                <button type="button" id="add-question">Adicionar pergunta</button>
-                <div class="perguntas">
-                    <input type="text" placeholder="Digite sua pergunta" class="border-cinza"/>
-                
-                    <input type="text" placeholder="Coloque a opção correta aqui" class="border-verde"/>
-                    <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
-                    <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
-                    <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
+                <div class="criar-quiz-text">
+                    <input type="text" placeholder="Nome do Quiz" class="border-cinza nome"/>
+                    <input type="text" placeholder="Coloque o tema do seu quiz aqui" class="border-cinza tema"/>
+                    <textarea length="300" class="border-cinza descricao" placeholder="Coloque uma breve descrição aqui"></textarea>
                 </div>
-                
-
+                <button type="button" id="add-question">Adicionar pergunta</button>
+                <div class="flex flex-col w-full justify-center items-center" id="perguntas">
+                    <input type="text" placeholder="Digite sua pergunta" class="border-cinza questao"/>
+                    <input type="text" placeholder="Coloque a opção correta aqui" class="border-verde correto"/>
+                    <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho incorreto"/>
+                    <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho incorreto"/>
+                    <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho incorreto"/>
+                </div>
                 <button type="submit">Criar</button>
             </form>
         </div>
     </main>
-    <script>
-        document.getElementById('add-question').addEventListener('click', function() {
-            
-            const novaPergunta = `
-                <input type="text" placeholder="Digite sua pergunta" class="border-cinza"/>
-                <input type="text" placeholder="Coloque a opção correta aqui" class="border-verde"/>
-                <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
-                <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
-                <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho"/>
-            `;
-
-            document.getElementById('perguntas').appendChild(novaPergunta);
-        });
-    </script>
 </body>
 </html>

@@ -18,6 +18,7 @@
   },
   "main": "index.js",
   "dependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
     "esbuild": "^0.24.0",
     "nanoid": "^3.3.8",
     "picocolors": "^1.1.1",

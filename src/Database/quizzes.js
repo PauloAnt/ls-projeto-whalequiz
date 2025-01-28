@@ -29,7 +29,7 @@ export const quizzes = [
                 "correto": "7"
             }
         ],
-        "create_at": "pauloant@example.com",
+        "criador": "pauloant@example.com",
         "tema": "conhecimentos_gerais",
         "descricao": "Teste seus conhecimentos gerais com perguntas sobre geografia, história, e fatos curiosos do mundo!"
     },
@@ -63,7 +63,7 @@ export const quizzes = [
                 "correto": "Organização das Nações Unidas"
             }
         ],
-        "create_at": "pauloant@example.com",
+        "criador": "pauloant@example.com",
         "tema": "educativo",
         "descricao": "Um quiz educativo para testar seus conhecimentos sobre literatura, ciências, matemática e mais!"
     },
@@ -97,7 +97,7 @@ export const quizzes = [
                 "correto": "Adele"
             }
         ],
-        "create_at": "victorbelfort@example.com",
+        "criador": "victorbelfort@example.com",
         "tema": "musica",
         "descricao": "Explore o universo musical com perguntas sobre artistas, álbuns icônicos e curiosidades!"
     },
@@ -131,7 +131,7 @@ export const quizzes = [
                 "correto": "Central Processing Unit"
             }
         ],
-        "create_at": "jonas@example.com",
+        "criador": "jonas@example.com",
         "tema": "tecnologia",
         "descricao": "Teste seus conhecimentos em tecnologia com perguntas sobre programação, hardware e software!"
     },
@@ -165,7 +165,7 @@ export const quizzes = [
                 "correto": "Simba"
             }
         ],
-        "create_at": "jonas@example.com",
+        "criador": "jonas@example.com",
         "tema": "cinema",
         "descricao": "Teste seus conhecimentos sobre o mundo do cinema com perguntas sobre diretores, atores e filmes icônicos!"
     }
