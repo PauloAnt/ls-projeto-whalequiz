@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d371e856df.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="src/Pages/Registro/Registro.css">
+    <link rel="stylesheet" href="./Registro.css">
+    <link rel="stylesheet" href="../../../index.css">
     <title>WhaleQuiz - Registrar</title>
 </head>
 <body>
 
     <main>
-    
+
         <section>
             <article class="article">
                 <h1 id="registrar-nome-quiz">WhaleQuiz</h1>
@@ -19,19 +20,31 @@
                     <div class="input">
                         <label for="usuario"><i class="fa-regular fa-user"></i> Usuário</label>
                         <input type="text" name="usuario" id="usuario" placeholder="Digite seu nome de usuário">
+                        <p id="msg-usuario">
+
+                        </p>
                     </div>
                     <div class="input">
                         <label for="email"><i class="fa-regular fa-envelope"></i> Email</label>
                         <input type="email" name="email" id="email" placeholder="Digite seu email">
+                        <p id="msg-email">
+
+                        </p>
                     </div>
                     <div class="input">
                         <label for="senha"><i class="fa-solid fa-lock"></i> Senha</label>
                         <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                        <p id="msg-senha">
+
+                        </p>
                     </div>
                     <button id="registrar">Registrar</button>
+                    <p>Já possui uma conta? <a href="../Login/Login.html">Entrar</a></p>
                 </form>
             </article>
         </section>
     </main>
+
+    <script src="../../Scripts/Registro.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 /* Css do Main */
 main {
-    width: 100%;
+    margin: auto;
+    width: 70%;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -8,7 +9,6 @@ main {
 }
 
 section{
-    
     background-color: var(--azul-claro);
     border-radius: 10px;
     box-shadow: var(--box-shadow);
@@ -69,6 +69,13 @@ button#registrar:hover {
 
 p#pergunta {
     color: var(--verde);
+}
+
+form p {
+    text-align: center;
+}
+p a{
+    text-decoration: underline;
 }
 
 .input {

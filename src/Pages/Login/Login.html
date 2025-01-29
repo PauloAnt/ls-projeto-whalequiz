@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d371e856df.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="src/Pages/Login/Login.css">
+    <link rel="stylesheet" href="./Login.css">
+    <link rel="stylesheet" href="../../../index.css">
     <title>WhaleQuiz - Login</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
         <section>
             <article class="a1">
                 <h1 id="registrar-nome-quiz">Bem-vindo</h1>
-                <form class="form"> 
+                <form class="form">
                     <div class="input">
                         <label for="usuario"><i class="fa-regular fa-user"></i> Usuário</label>
                         <input type="text" name="usuario" id="usuario" placeholder="Digite seu nome de usuário">
@@ -21,16 +22,20 @@
                     <div class="input">
                         <label for="senha"><i class="fa-solid fa-lock"></i> Senha</label>
                         <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                        <p id="msg-login">
+
+                        </p>
                     </div>
-                    <button id="entrar"><a href="../Home/home.html">Entrar</a></button>
+                    <button id="entrar">Entrar</button>
                 </form>
                 <p id="pergunta">Esqueceu a senha?</p>
             </article>
             <article class="a2">
-                <p>Novo no WhaleBet? <a href="#" class="link" data-rota="registro">Criar conta</a></p>
+                <p>Novo no WhaleQuiz? <a href="../Registro/Registro.html">Criar conta</a></p>
             </article>
         </section>
-        
     </main>
+    
+    <script src="../../Scripts/Login.js"></script>
 </body>
 </html>
