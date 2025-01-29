@@ -1,6 +1,7 @@
 import carregarPagina from "./Scripts/carregarPagina.js";
 import header from "./Components/header.js";
 import footer from "./Components/footer.js";
+import headerLogado from "./Components/headerLogado.js";
 
 import { quizzes } from "./Database/quizzes.js";
 import { users } from "./Database/users.js";
@@ -8,11 +9,17 @@ import { users } from "./Database/users.js";
 import quizCard from "./Components/quizCard.js";
 import quizzesCriados  from "./Components/quizzesCriados.js";
 import QuizPerguntas from "./Components/QuizPerguntas.js";
+
+import Login from './Scripts/Login.js'
+import { validarRegistro, salvarDados, limpaErros, exibirErro } from './Scripts/Registro.js'
+
+
 document.getElementById("header").innerHTML = header();
 document.getElementById("footer").innerHTML = footer();
 
 localStorage.setItem('users', JSON.stringify(users));
 localStorage.setItem('quizzes', JSON.stringify(quizzes));
+localStorage.removeItem('sessaoAtual');
 
 carregarPagina("src/Pages/Home/home.html", "app").then(() => {
     let card_quiz = localStorage.getItem("quizzes");
@@ -44,14 +51,52 @@ carregarPagina("src/Pages/Home/home.html", "app").then(() => {
 });
 
 const rotas = (rota) => {
+    linkBotoes()
     if (rota == "registro") {
-        carregarPagina("src/Pages/Registro/Registro.html", "app");
+        carregarPagina("src/Pages/Registro/Registro.html", "app").then(() => {
+            const registrar = document.querySelector("#registrar");
+            const inputUsuario = document.querySelector("#usuario");
+            const inputEmail = document.querySelector("#email");
+            const inputSenha = document.querySelector("#senha");
+    
+            if (registrar) {
+                registrar.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    limpaErros();
+    
+                    let formValido = true;
+    
+                    if (!inputUsuario.value.trim()) {
+                        exibirErro("msg-usuario", "Nome do usuário não pode ser vazio.");
+                        formValido = false;
+                    }
+    
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(inputEmail.value.trim())) {
+                        exibirErro("msg-email", "Email inválido!");
+                        formValido = false;
+                    }
+    
+                    if (inputSenha.value.length < 8) {
+                        exibirErro("msg-senha", "A senha deve ter pelo menos 8 caracteres.");
+                        formValido = false;
+                    }
+    
+                    if (formValido) {
+                        salvarDados(inputUsuario, inputEmail, inputSenha);
+                        alert("Registrado com sucesso!")
+                        rotas("login");
+                        
+                    }
+                });
+            } else {
+                console.error("Botão de registro não encontrado.");
+            }
+        });
     } else if (rota == "home") {
         carregarPagina("src/Pages/Home/home.html", "app").then(() => {
             let card_quiz = localStorage.getItem("quizzes");
             card_quiz = JSON.parse(card_quiz);
-            console.log(card_quiz);
-            console.log(typeof card_quiz);
 
             card_quiz.forEach((q) => {
                 const container = document.getElementById("all-quizzes");
@@ -76,7 +121,36 @@ const rotas = (rota) => {
             
         });
     } else if (rota == "login") {
-        carregarPagina("src/Pages/Login/Login.html", "app");
+        carregarPagina("src/Pages/Login/Login.html", "app").then((e) => {
+            const inputUsuario = document.querySelector("#usuario");
+            const inputSenha = document.querySelector("#senha");
+            const entrar = document.querySelector("#entrar");
+            entrar.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                const erroLogin = document.querySelector("#msg-login");
+                const usuarioProcurado = inputUsuario.value.trim();
+                const senha = inputSenha.value;
+                const usuariosRegistrados = JSON.parse(localStorage.getItem("users"));
+
+                const usuarioValido = usuariosRegistrados.find(
+                    (usuario) => usuario.nome === usuarioProcurado && usuario.senha === senha
+                );
+
+                if (usuarioValido) {
+                    localStorage.setItem("sessaoAtual", JSON.stringify(usuarioValido));
+                    alert("Logado com sucesso!");
+                    document.getElementById("header").innerHTML = headerLogado();
+                    linkBotoes();
+                    carregarPagina("src/Pages/Home/home.html", "app");
+
+                } else {
+                    erroLogin.textContent = "Usuário ou senha inválidos.";
+                    erroLogin.style.color = "red";
+                    erroLogin.style.textAlign = "center";
+                }
+            });
+        });
     } else if (rota === "quizResponder") {
         carregarPagina("src/Pages/QuizResponder/QuizResponder.html", "app").then(() => {
             const quizSelecionadoId = localStorage.getItem("quizz-selecionado-id");
@@ -100,43 +174,41 @@ const rotas = (rota) => {
         carregarPagina("src/Pages/QuizCriar/QuizCriar.html", "app").then(() => {
             document.getElementById('add-question').addEventListener('click', () => {
                 const container = document.getElementById('perguntas');
-                const div = document.createElement('div');
-                div.classList.add('question-container');
-    
-                div.innerHTML = `
+        
+                const inputs = `
                     <input type="text" placeholder="Digite sua pergunta" class="border-cinza questao"/>
                     <input type="text" placeholder="Coloque a opção correta aqui" class="border-verde correto"/>
                     <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho incorreto"/>
                     <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho incorreto"/>
                     <input type="text" placeholder="Coloque a opção incorreta aqui" class="border-vermelho incorreto"/>
                 `;
-    
-                container.appendChild(div);
+        
+                container.insertAdjacentHTML('beforeend', inputs);
             });
-    
+        
             document.querySelector('form').addEventListener('submit', (event) => {
                 event.preventDefault();
-    
-                const perguntas = [];
+        
+                let perguntas = [];
                 const nome = document.querySelector(".nome").value;
                 const tema = document.querySelector(".tema").value;
                 const descricao = document.querySelector(".descricao").value;
-    
-                document.querySelectorAll('.question-container').forEach((questionDiv) => {
-                    const questao = questionDiv.querySelector('.questao').value;
-                    const correto = questionDiv.querySelector('.correto').value;
-                    const incorretos = Array.from(
-                        questionDiv.querySelectorAll('.incorreto')
-                    ).map(input => input.value);
-    
+        
+                const questoes = Array.from(document.querySelectorAll('.questao')).map(q => q.value);
+                const corretos = Array.from(document.querySelectorAll('.correto')).map(c => c.value);
+                const incorretos = Array.from(document.querySelectorAll('.incorreto')).map(i => i.value);
+        
+                questoes.forEach((questao, index) => {
+                    const opcoes = [...incorretos.slice(index * 3, (index + 1) * 3), corretos[index]];
                     perguntas.push({
-                        pergunta: questao,
-                        opcoes: incorretos,
-                        correto: correto
-                        
+                        questoes: questao,
+                        opcoes: opcoes,
+                        correto: corretos[index]
                     });
                 });
-    
+                
+                console.log(perguntas);
+        
                 const quizzes = JSON.parse(localStorage.getItem('quizzes') || '[]');
                 const data = {
                     id: quizzes.length + 1,
@@ -146,54 +218,58 @@ const rotas = (rota) => {
                     tema: tema,
                     descricao: descricao
                 };
-    
+        
                 quizzes.push(data);
                 localStorage.setItem('quizzes', JSON.stringify(quizzes));
-    
+        
                 alert("Quiz criado com sucesso!");
-                carregarPagina("src/Pages/Home/home.html", "app");
+                rotas("home");
             });
-        });    
-    } else if (rota == "quiz") {
-        carregarPagina("src/Pages/Quiz/Quiz.html", "app").then(() => {
+        });
+    } else if (rota == "perfil") {
+        carregarPagina("src/Pages/Perfil/Perfil.html", "app").then(() => {
+            const usuarioLogado = JSON.parse(localStorage.getItem('sessaoAtual'));
+            document.querySelector(".usuario").value = usuarioLogado.nome
+            document.querySelector(".email").value = usuarioLogado.email
+
             const quizzesUsuarioAtual = [] 
             quizzes.forEach((q) => {
-                if (q.criador === nome) quizzesUsuarioAtual.push(q);
+                if (q.criador === usuarioLogado.nome) quizzesUsuarioAtual.push(q);
             }); // Pegar nome de quem está logado atualmente
 
             quizzesUsuarioAtual.forEach((q) => {
                 document.querySelector(".quiz-exists").insertAdjacentHTML('beforeend', quizzesCriados(q.nome, q.id));
             })
             
-            document.querySelectorAll(".deletar").addEventListener('click', (e) => {
-                const id = e.getAttribute("data-id");
-                quizzes.reduce((q) => q.id != id);
-                localStorage.setItem('quizzes', quizzes);
+            document.querySelectorAll(".deletar").forEach((d) => {
+                d.addEventListener('click', (e) => {
+                    const id = e.getAttribute("data-id");
+                    quizzes.reduce((q) => q.id != id);
+                    localStorage.setItem('quizzes', quizzes);
+                    alert("Quiz deletado com sucesso!");
+                })
             })
-            alert("Quiz deletado com sucesso!");
-            carregarPagina("src/Pages/Quiz/Quiz.html", "app");
+            
         });
-    } else if (rota == "perfil") {
-        carregarPagina("src/Pages/Perfil/Perfil.html", "app").then(() => {
-            document.querySelector(".usuario").value = "teste"
-            document.querySelector(".email").value = "email@email.com"
-        });
-    } else if (rota == "about") {
+    } else if (rota == "sobre") {
         carregarPagina("src/Pages/About/About.html", "app");
     }
 };
 
-document.querySelectorAll(".link").forEach((evento) => {
-    evento.addEventListener('click', () => {
-        const rota = evento.getAttribute("data-rota");
-        rotas(rota);
+function linkBotoes(){
+    document.querySelectorAll(".link").forEach((evento) => {
+        evento.addEventListener('click', () => {
+            const rota = evento.getAttribute("data-rota");
+            rotas(rota);
+        });
     });
-});
+}
+linkBotoes()
+
 
 
 function adicionarEventosNosCards() {
     const elementos = document.querySelectorAll(".data-id");
-    console.log("Elementos .data-id encontrados:", elementos.length); 
     if (elementos.length === 0) {
         console.error("Nenhum elemento .data-id encontrado.");
     }
@@ -202,7 +278,6 @@ function adicionarEventosNosCards() {
         evento.addEventListener("click", (e) => {
             e.preventDefault();
             const idQuiz = evento.getAttribute("data-id");
-            console.log(`ID do Quiz clicado: ${idQuiz}`); 
             localStorage.setItem("quizz-selecionado-id", idQuiz);
             rotas("quizResponder");
         });

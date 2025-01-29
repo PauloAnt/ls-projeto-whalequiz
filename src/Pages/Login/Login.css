@@ -49,6 +49,7 @@ form input {
     border-radius: 5px;
     font-size: 16px;
     border: none;
+    background-color: var(--branco);
 }
 
 button#entrar {

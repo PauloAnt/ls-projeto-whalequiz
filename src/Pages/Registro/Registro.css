@@ -1,60 +1,67 @@
 /* Css do Main */
 main {
     margin: auto;
-    width: 70%;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-section{
+section {
     background-color: var(--azul-claro);
     border-radius: 10px;
     box-shadow: var(--box-shadow);
     width: 50%;
-    padding: 30px 0;
-}   
+    max-width: 500px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
 
 #registrar-nome-quiz {
-    margin: 10px 10px;
+    margin: 10px 0;
     font-family: var(--font-titulo);
     font-size: var(--tam-font-titulo);
     font-weight: 500;
+    text-align: center;
 }
 
-article.article  {
+article.article {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     border-radius: 10px;
 }
 
-form.form {
+form {
     margin-top: 20px;
+    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
 form input {
-    width: 500px;
+    width: 100%;
     padding: 12px;
     font-size: 16px;
-    margin: 10px 10px;
     border-radius: 5px;
     border: none;
+    background-color: var(--branco);
 }
 
 button#registrar {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     padding: 10px;
     border-radius: 5px;
     background-color: var(--laranja);
     cursor: pointer;
-    margin: 10px 10px;
+    margin: 10px 0;
     border: none;
     color: var(--branco);
     transition: 0.5s;
@@ -74,7 +81,8 @@ p#pergunta {
 form p {
     text-align: center;
 }
-p a{
+
+p a {
     text-decoration: underline;
 }
 
@@ -82,6 +90,8 @@ p a{
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 350px;
 }
 
 .input label {
@@ -90,6 +100,43 @@ p a{
     color: var(--preto);
 }
 
+@media (max-width: 768px) {
+    section {
+        width: 80%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 10px;
+    }
+    section {
+        width: 90%;
+        padding: 20px;
+    }
+    form input {
+        padding: 10px;
+    }
+    button#registrar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    section {
+        width: 95%;
+        padding: 15px;
+    }
+    form input {
+        font-size: 14px;
+        padding: 8px;
+    }
+    button#registrar {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
 
 
 @media (max-width: 556px) {
@@ -139,7 +186,6 @@ p a{
     }
 
     form input {
-        width: 250px;
         padding: 12px;
         margin: 10px 10px;
         border-radius: 5px;
@@ -165,7 +211,7 @@ p a{
     }
 
     form input {
-        width: 250px;
+        width: 90%;
         padding: 12px;
         margin: 10px 10px;
     }
