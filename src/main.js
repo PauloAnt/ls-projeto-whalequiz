@@ -142,7 +142,7 @@ const rotas = (rota) => {
                     alert("Logado com sucesso!");
                     document.getElementById("header").innerHTML = headerLogado();
                     linkBotoes();
-                    carregarPagina("src/Pages/Home/home.html", "app");
+                    rotas('home');
 
                 } else {
                     erroLogin.textContent = "Usuário ou senha inválidos.";
@@ -167,7 +167,62 @@ const rotas = (rota) => {
             } else {
                 console.error("Quiz não encontrado.");
             };
+
+            document.getElementById("verificar-respostas").addEventListener("click", verificarRespostas);
+
+            document.addEventListener("click", function (event) {
+                const opcaoSelecionada = event.target.closest(".option");
             
+                if (opcaoSelecionada) {
+                    selecionarOpcao(opcaoSelecionada);
+                }
+            });
+            
+            function selecionarOpcao(elemento) {
+                const parent = elemento.parentElement;
+            
+              
+                parent.querySelectorAll(".option").forEach(op => op.classList.remove("selecionado"));
+            
+               
+                elemento.classList.add("selecionado");
+            
+                
+                const input = elemento.querySelector("input");
+                if (input) {
+                    input.checked = true;
+                }
+            }
+            function verificarRespostas() {
+                document.querySelectorAll(".quiz-perguntas").forEach(pergunta => {
+                    const opcoes = pergunta.querySelectorAll(".option");
+                    let opcoesCorretas = 0
+                    let qtdOpcoes = 1
+                    opcoes.forEach(opcao => {
+                        const input = opcao.querySelector("input");
+                        const isCorrect = input.getAttribute("data-correct") === "true";
+                        qtdOpcoes += 1
+                        if (input.checked) {
+                            if (isCorrect) {
+                                opcao.classList.add("correto");
+                                opcoesCorretas += 1
+                                
+                            } else {
+                                opcao.classList.add("errado");
+                            }
+                            
+                           
+
+                        }
+                    });
+                    const resultado = `Você acertou  ${opcoesCorretas} / ${qtdOpcoes}. Tente novamente mais tarde  -_-`
+                    const containerResultado = document.querySelector("#resultado-Quizzes")
+                    containerResultado.innerHTML = resultado
+                    
+                });
+            }
+            
+
             
         });
     } else if (rota == "quizCriar") {
@@ -232,10 +287,16 @@ const rotas = (rota) => {
             document.querySelector(".usuario").value = usuarioLogado.nome
             document.querySelector(".email").value = usuarioLogado.email
 
+            const quizzes = JSON.parse(localStorage.getItem('quizzes') || '[]');
+            console.log(quizzes)
             const quizzesUsuarioAtual = [] 
             quizzes.forEach((q) => {
-                if (q.criador === usuarioLogado.nome) quizzesUsuarioAtual.push(q);
-            }); // Pegar nome de quem está logado atualmente
+                console.log(q.criador)
+                if (q.criador === usuarioLogado.email) quizzesUsuarioAtual.push(q);
+                console.log(quizzesUsuarioAtual)
+            });
+            console.log(quizzes)
+            console.log(quizzesUsuarioAtual)
 
             quizzesUsuarioAtual.forEach((q) => {
                 document.querySelector(".quiz-exists").insertAdjacentHTML('beforeend', quizzesCriados(q.nome, q.id));

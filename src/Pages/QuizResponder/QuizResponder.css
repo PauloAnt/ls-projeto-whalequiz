@@ -153,6 +153,22 @@ a {
     color: inherit;
 }
 
+.option.selecionado {
+    background-color: var(--azul-claro)
+}
+
+.option.correto {
+    background-color: var(--verde);
+    color: white;
+    border-color: var(--verde);
+}
+
+.option.errado {
+    background-color: var(--vermelho);
+    color: white;
+    border-color: var(--vermelho);
+}
+
 /* Css do footer */
 footer {
     background-color: var(--azul-claro);

@@ -71,9 +71,17 @@ form button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 80%;
+    margin-top: 100px;
     border-bottom: 2px solid var(--cinza);
     padding-bottom: 10px;
+
+    
+}
+.quiz-container{
+    
+    align-items: center;
+    padding: 20px;
 }
 
 .quiz-text h1 {

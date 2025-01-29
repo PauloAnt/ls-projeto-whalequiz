@@ -1,26 +1,21 @@
-export default function QuizPerguntas(questao, opcoes, correta){
-    let conjuntoOpcoes = ""
-    let DataCorrect ='data-correct="false"'
+export default function QuizPerguntas(questao, opcoes, correta, id) {
+    let conjuntoOpcoes = "";
 
-    opcoes.forEach(i => {
-        if (i === correta){
-            DataCorrect = 'data-correct="true"'
-        }
+    opcoes.forEach((opcao) => {
+        const isCorrect = opcao === correta ? 'data-correct="true"' : 'data-correct="false"';
 
-        conjuntoOpcoes +=`
-                    <div class="option">
-                        <input type="radio" id="option1" name="question ${DataCorrect}">
-                        <label for="option1">${i}</label>
-                    </div>\n
-        `
-
-        DataCorrect ='data-correct="false"'
+        conjuntoOpcoes += `
+            <div class="option">
+                <input type="radio" class="opcao" name="pergunta-${id}" value="${opcao}" ${isCorrect}>
+                <label>${opcao}</label>
+            </div>\n
+        `;
     });
 
     return `
-                   <div class="quiz-perguntas">
-                    <h2>${questao}</h2>
-                    ${conjuntoOpcoes}
-                </div>
-    `
-};
+        <div class="quiz-perguntas" id="pergunta-${id}">
+            <h2>${questao}</h2>
+            ${conjuntoOpcoes}
+        </div>
+    `;
+}
