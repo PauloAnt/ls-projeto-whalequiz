@@ -51,7 +51,6 @@ carregarPagina("src/Pages/Home/home.html", "app").then(() => {
 });
 
 const rotas = (rota) => {
-    linkBotoes()
     if (rota == "registro") {
         carregarPagina("src/Pages/Registro/Registro.html", "app").then(() => {
             const registrar = document.querySelector("#registrar");
@@ -95,6 +94,7 @@ const rotas = (rota) => {
         });
     } else if (rota == "home") {
         carregarPagina("src/Pages/Home/home.html", "app").then(() => {
+            linkBotoes()
             let card_quiz = localStorage.getItem("quizzes");
             card_quiz = JSON.parse(card_quiz);
 
@@ -261,8 +261,6 @@ const rotas = (rota) => {
                         correto: corretos[index]
                     });
                 });
-                
-                console.log(perguntas);
         
                 const quizzes = JSON.parse(localStorage.getItem('quizzes') || '[]');
                 const data = {
@@ -288,28 +286,30 @@ const rotas = (rota) => {
             document.querySelector(".email").value = usuarioLogado.email
 
             const quizzes = JSON.parse(localStorage.getItem('quizzes') || '[]');
-            console.log(quizzes)
             const quizzesUsuarioAtual = [] 
             quizzes.forEach((q) => {
-                console.log(q.criador)
+
                 if (q.criador === usuarioLogado.email) quizzesUsuarioAtual.push(q);
-                console.log(quizzesUsuarioAtual)
             });
-            console.log(quizzes)
-            console.log(quizzesUsuarioAtual)
 
             quizzesUsuarioAtual.forEach((q) => {
                 document.querySelector(".quiz-exists").insertAdjacentHTML('beforeend', quizzesCriados(q.nome, q.id));
             })
             
             document.querySelectorAll(".deletar").forEach((d) => {
-                d.addEventListener('click', (e) => {
-                    const id = e.getAttribute("data-id");
-                    quizzes.reduce((q) => q.id != id);
-                    localStorage.setItem('quizzes', quizzes);
+                d.addEventListener("click", (e) => {
+                    const id = d.getAttribute("data-id"); 
+                    let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+                    
+                    quizzes = quizzes.filter(q => q.id != id);
+                    
+                    localStorage.setItem("quizzes", JSON.stringify(quizzes));
+                    
                     alert("Quiz deletado com sucesso!");
-                })
-            })
+            
+                    d.parentElement.remove();
+                });
+            });
             
         });
     } else if (rota == "sobre") {

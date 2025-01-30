@@ -131,7 +131,6 @@ form button:hover {
 }
 
 .quiz-exists div button {
-    background-color: var(--verde);
     color: var(--branco);
     border: none;
     border-radius: 5px;
