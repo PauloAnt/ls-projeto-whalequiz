@@ -180,13 +180,8 @@ const rotas = (rota) => {
             
             function selecionarOpcao(elemento) {
                 const parent = elemento.parentElement;
-            
-              
                 parent.querySelectorAll(".option").forEach(op => op.classList.remove("selecionado"));
-            
-               
                 elemento.classList.add("selecionado");
-            
                 
                 const input = elemento.querySelector("input");
                 if (input) {
@@ -194,36 +189,39 @@ const rotas = (rota) => {
                 }
             }
             function verificarRespostas() {
+                let totalPerguntas = document.querySelectorAll(".quiz-perguntas").length;
+                let totalCorretas = 0;
+            
                 document.querySelectorAll(".quiz-perguntas").forEach(pergunta => {
                     const opcoes = pergunta.querySelectorAll(".option");
-                    let opcoesCorretas = 0
-                    let qtdOpcoes = 1
-                    opcoes.forEach(opcao => {
-                        const input = opcao.querySelector("input");
-                        const isCorrect = input.getAttribute("data-correct") === "true";
-                        qtdOpcoes += 1
-                        if (input.checked) {
-                            if (isCorrect) {
-                                opcao.classList.add("correto");
-                                opcoesCorretas += 1
-                                
-                            } else {
-                                opcao.classList.add("errado");
-                            }
-                            
-                           
-
-                        }
-                    });
-                    const resultado = `Você acertou  ${opcoesCorretas} / ${qtdOpcoes}. Tente novamente mais tarde  -_-`
-                    const containerResultado = document.querySelector("#resultado-Quizzes")
-                    containerResultado.innerHTML = resultado
+            
+                    const opcoesCorretas = Array.from(opcoes).filter(opcao => 
+                        opcao.querySelector("input").getAttribute("data-correct") === "true"
+                    );
+            
+                    const opcoesSelecionadas = Array.from(opcoes).filter(opcao => 
+                        opcao.querySelector("input").checked
+                    );
+            
+                    const corretasSelecionadas = opcoesSelecionadas.filter(opcao => 
+                        opcao.querySelector("input").getAttribute("data-correct") === "true"
+                    );
+            
+                    const erradasSelecionadas = opcoesSelecionadas.filter(opcao => 
+                        opcao.querySelector("input").getAttribute("data-correct") === "false"
+                    );
+            
                     
-                });
+            
+                    opcoesCorretas.forEach(opcao => opcao.classList.add("correto"), totalCorretas += 1);
+                    erradasSelecionadas.forEach(opcao => opcao.classList.add("errado"));
+                });           
+                    const resultado = totalCorretas === totalPerguntas ? `Parabéns você acertou ${totalCorretas}/${totalPerguntas} faça outro quiz!`: `Você acertou ${totalCorretas}/ ${totalPerguntas} Tente novamente mais tarde -_-`  
+                    const containerResultado = document.querySelector("#resultado-Quizzes");
+                    if (containerResultado) {
+                        containerResultado.innerHTML = resultado;
+                    }             
             }
-            
-
-            
         });
     } else if (rota == "quizCriar") {
         carregarPagina("src/Pages/QuizCriar/QuizCriar.html", "app").then(() => {
