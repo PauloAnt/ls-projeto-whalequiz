@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  base: '/',
+  base: '/ls-projeto-whalequiz/',
   assetsInclude: ["**/*.html"],
   server: {
     port: 8080,
