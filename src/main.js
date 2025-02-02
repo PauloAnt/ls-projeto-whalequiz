@@ -311,7 +311,7 @@ const rotas = (rota) => {
             
         });
     } else if (rota == "sobre") {
-        carregarPagina("src/Pages/About/About.html", "app");
+        carregarPagina("src/Pages/About/about.html", "app");
     }
 };
 
