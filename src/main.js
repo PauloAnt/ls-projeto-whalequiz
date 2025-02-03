@@ -10,6 +10,7 @@ import quizCard from "./Components/quizCard.js";
 import quizzesCriados  from "./Components/quizzesCriados.js";
 import QuizPerguntas from "./Components/QuizPerguntas.js";
 
+
 import Login from './Scripts/Login.js'
 import { validarRegistro, salvarDados, limpaErros, exibirErro } from './Scripts/Registro.js'
 

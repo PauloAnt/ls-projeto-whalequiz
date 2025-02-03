@@ -176,11 +176,11 @@ h1{
 }
 .esconder{
     margin: 0;
-    opacity: 0;;
+    opacity: 0;
 }
 
 .esconder:hover{
-    opacity: 100;;
+    opacity: 100;
 }
 
 
@@ -298,11 +298,11 @@ h1{
 
 }
 
-@media (min-width:601px) AND (max-width:800px){
-    .pop-cards{
+@media (min-width: 601px) and (max-width: 800px) { 
+    .pop-cards {
         width: 95vw;
     }
-    #all-quizzes{
+    #all-quizzes {
         width: 95vw;
         grid-template-columns: repeat(4, 1fr);
     }
