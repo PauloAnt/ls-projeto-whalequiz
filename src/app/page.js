@@ -1,101 +1,88 @@
-import Image from "next/image";
+"use client"; 
+
+import Link from "next/link";
+import ThemeCard from "@/app/components/ThemeCard";
+import QuizCard from "@/app/components/QuizCard";
+import "@/app/styles/css/home.css";
+import "@/app/styles/globals.css"; 
+import { getAllQuizzes } from "@/app/api/quizzes";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [quizzes, setQuizzes] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    getAllQuizzes()
+      .then(response => {
+        console.log("Quizzes recebidos:", response);
+        setQuizzes(response.data);
+      })
+      .catch(error => console.error("Erro ao buscar quizzes:", error))
+      .finally(() => setLoading(false));
+  }, []);
+
+  return (
+    <main>
+      <h1 id="inicio" className="text-center">Bem-vindo ao WhaleQuiz!</h1>
+
+      {/* Seção de Quizzes Populares */}
+      <section id="populares">
+        <h1>Quizzes em <span>ALTA 🚀</span></h1>
+        {loading ? (
+          <p>Carregando quizzes...</p>
+        ) : (
+          <div className="pop-cards" id="quizzes-populares">
+            {quizzes.length > 0 ? (
+              quizzes.slice(0, 4).map((quiz) => (
+                <QuizCard key={quiz.id} id={quiz.id} nome={quiz.nome} descricao={quiz.descricao} />
+              ))
+            ) : (
+              <p>Nenhum quiz disponível no momento.</p>
+            )}
+          </div>
+        )}
+        
+      </section>
+
+      {/* Criar Quiz */}
+      <section id="criar">
+        <div id="botao_criar">
+          <Link href="/quizCriar" className="botao link">Crie você mesmo!</Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Explorar Temas */}
+      <section id="explorar">
+        <h1>Conheça os temas disponíveis</h1>
+        <div id="box-temas">
+          <ThemeCard title="Cultura Pop" topics={["Filmes clássicos e atuais", "Animes e mangás", "Super-heróis e vilões"]} />
+          <ThemeCard title="Música" topics={["Bandas", "Cantores", "Gêneros musicais"]} />
+          <ThemeCard title="Conhecimentos Gerais" topics={["Matérias escolares", "Tecnologia", "Jogos"]} />
+          <ThemeCard title="Temas Educativos" topics={["Idiomas", "Lógica e raciocínio", "Concursos"]} />
+        </div>
+      </section>
+
+      {/* Quizzes da Galera */}
+      <section className="quizzes-gerais">
+        <h1 className="text-center">Quizzes da galera</h1>
+        {loading ? (
+          <p>Carregando quizzes...</p>
+        ) : (
+          <div id="all-quizzes" className="pop-cards flex flex-wrap justify-center items-center">
+            {quizzes.length > 0 ? (
+              quizzes.map((quiz) => (
+                <QuizCard key={quiz.id} id={quiz.id} nome={quiz.nome} descricao={quiz.descricao} />
+              ))
+            ) : (
+              <p>Nenhum quiz disponível no momento.</p>
+            )}
+          </div>
+        )}
+        <div id="ver-mais">
+          <Link href="/explorar" className="botao">Explorar mais</Link>
+        </div>
+      </section>
+    </main>
   );
 }

@@ -1,0 +1,245 @@
+/* Css do Main */
+main {
+    margin: auto;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+section {
+    background-color: var(--azul-claro);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    width: 50%;
+    max-width: 500px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+#registrar-nome-quiz {
+    margin: 10px 0;
+    font-family: var(--font-titulo);
+    font-size: var(--tam-font-titulo);
+    font-weight: 500;
+    text-align: center;
+}
+
+article.article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+}
+
+form {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--branco);
+}
+
+button#registrar {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--laranja);
+    cursor: pointer;
+    margin: 10px 0;
+    border: none;
+    color: var(--branco);
+    transition: 0.5s;
+    font-size: 18px;
+}
+
+button#registrar:hover {
+    background-color: var(--verde);
+    transform: scale(1.03);
+    transition: 0.5s;
+}
+
+p#pergunta {
+    color: var(--verde);
+}
+
+form p {
+    text-align: center;
+}
+
+p a {
+    text-decoration: underline;
+}
+
+.input {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+}
+
+.input label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--preto);
+}
+
+@media (max-width: 768px) {
+    section {
+        width: 80%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 10px;
+    }
+    section {
+        width: 90%;
+        padding: 20px;
+    }
+    form input {
+        padding: 10px;
+    }
+    button#registrar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    section {
+        width: 95%;
+        padding: 15px;
+    }
+    form input {
+        font-size: 14px;
+        padding: 8px;
+    }
+    button#registrar {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+
+@media (max-width: 556px) {
+    ul.conteiner1 {
+        display: flex;
+        flex-direction: column; 
+        gap: 20px; 
+    }
+
+    li.logo {
+        order: 1; 
+    }
+
+    li.pesquisar {
+        order: 2;
+        text-align: center; 
+    }
+
+    li.criar {
+        order: 3;
+        width: 58%; 
+        padding: 10px;
+    }
+
+    li.entrar {
+        order: 4;
+        width: 58%; 
+        padding: 10px;
+    }
+
+    li.registrar {
+        width: 58%; 
+        padding: 10px;
+        order: 5;
+    }
+
+    main {
+        margin-top: 5%;
+        width: 350px;
+        height: auto; 
+        margin-bottom: 5%;
+    }
+
+    button#registrar {
+        width: 200px; 
+        margin-bottom: 10%;
+    }
+
+    form input {
+        padding: 12px;
+        margin: 10px 10px;
+        border-radius: 5px;
+        border: 1px solid var(--verde);
+    }
+}
+
+
+
+@media (min-width: 556px) AND (max-width: 662px) {
+    ul.conteiner1 {
+    margin: 0;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 50px;
+    }
+
+    main {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 350px;
+        height: 500px;
+    }
+
+    form input {
+        width: 90%;
+        padding: 12px;
+        margin: 10px 10px;
+    }
+
+    button#registrar {
+        width: 200px;
+    }
+
+    li.img {
+        order: 1;
+    }
+
+    li.criar {
+        order: 2;
+    }
+
+    li.pesquisar {
+        order: 5;
+        width: 100%;
+        text-align: center;
+    }
+
+    li.entrar {
+        order: 3;
+    }
+    
+    li.registrar{
+        order: 4;
+    }
+
+}

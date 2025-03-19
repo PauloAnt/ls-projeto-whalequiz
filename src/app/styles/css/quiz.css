@@ -1,0 +1,201 @@
+body {
+    background-color: var(--branco);
+    font-family: var(--font);
+    color: var(--preto);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header{
+    width: 100%;
+}
+main {
+    width: 90%;
+    height: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.quiz-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 2px solid var(--cinza);
+    padding-bottom: 10px;
+}
+
+.quiz-text h1 {
+    font-family: var(--font-titulo);
+    font-size: var(--tam-font-titulo);
+    font-weight: 500;
+}
+
+.quiz-text button {
+    background-color: var(--verde);
+    color: var(--branco);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quiz-text button:hover {
+    background-color: var(--laranja);
+    transform: scale(1.05);
+}
+
+.quiz-exists {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quiz-criados{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--cinza);
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: var(--branco);
+    box-shadow: var(--box-shadow);
+}
+
+.quiz-exists div p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.quiz-exists div button {
+    background-color: var(--verde);
+    color: var(--branco);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quiz-exists div button:hover {
+    transform: scale(1.05);
+}
+
+.background-vermelho{
+    background-color: var(--vermelho) !important;
+}
+
+ul.conteiner1 {
+    margin: 0;
+    list-style-type: none;
+    background-color: var(--azul-claro);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.37);
+}
+
+img.whale-logo {
+    border-radius: 50%;
+}
+
+li.criar {
+    color: var(--branco);
+    width: 80px;
+    text-align: center;
+    background-color: var(--laranja);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+li.entrar {
+    color: var(--branco);
+    width: 80px;
+    text-align: center;
+    background-color: var(--laranja);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+li.registrar{
+    color: var(--branco);
+    width: 80px;
+    text-align: center;
+    background-color: var(--laranja);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+input#pesquisar-quiz {
+    width: 300px;
+    padding: 10px;
+    margin: 5px 5px;
+    border-radius: 10px;
+    background-color: var(--branco);
+    border: 2px solid var(--branco);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Css do footer */
+footer {
+    background-color: var(--azul-claro);
+    margin-top: auto;
+    width: 100%;
+    font-size: 18px;
+}
+
+p.margem {
+    font-weight: bold;
+}
+p {
+    margin: 8px 8px;
+    text-align: center;
+}
+
+article.conteiner2 {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
+}
+
+.conteiner2 i {
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.conteiner2 i:hover {
+    scale: 110%;
+    transition: 0.5s;
+}
