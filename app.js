@@ -3,6 +3,7 @@ import env from "dotenv";
 import QuizRouter from "./src/Routers/QuizRouter.js";
 import UserRouter from "./src/Routers/UserRouter.js";
 import QuestionRouter from "./src/Routers/QuestionRouter.js";
+import cors from 'cors';
 
 // Configurações
 env.config();
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use("/api", QuizRouter);
 app.use("/api", UserRouter);
 app.use("/api", QuestionRouter);
+app.use(cors());
 
 app.get("/status", (req, res) => {
     return res.status(200).json({
